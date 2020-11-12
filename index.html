@@ -1,24 +1,63 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>JavaScript - Redirect to another URL on Button Click.</title>
         <script type="text/javascript">
-            function redirectToURL(btnId){
+            function removeLoader(){
+                $( "#loadingDiv" ).fadeOut(500, function() {
+                    // fadeOut complete. Remove the loading div
+                    $( "#loadingDiv" ).remove(); //makes page more lightweight 
+                });  
+            }
+            function redirectToURL(){
+                $('body').append('<div style="" id="loadingDiv"><div style="" class="loader"></div></div>');
+                $( "#form" ).remove();
                 function pageRedirect() {
-                    if(btnId=="button1")
-                        window.location.replace("discovermobile://?deeplink=linktoitpregistration&referral-token=abcd123");
-                    else if(btnId=="button2")
-                        window.location.replace("https://www.google.com");
-                    else if(btnId=="button3")
-                        window.location.replace("http://www.bing.com/");
+                    removeLoader();
+                    window.location.replace("discovermobile://?deeplink=linktoitpregistration&referral-token=abcd123");
                 }   
                 setTimeout(pageRedirect, 10000);
             }
         </script>
+        <style>
+                .loader {
+                    border: 16px solid #f3f3f3;
+                    border-radius: 50%;
+                    border-top: 16px solid #3498db;
+                    width: 120px;
+                    height: 120px;
+                    -webkit-animation: spin 2s linear infinite; /* Safari */
+                    animation: spin 2s linear infinite;
+                }
+                
+                /* Safari */
+                @-webkit-keyframes spin {
+                    0% { -webkit-transform: rotate(0deg); }
+                    100% { -webkit-transform: rotate(360deg); }
+                }
+                
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+                #loadingDiv {
+                    -webkit-box-align:center;
+                    -webkit-box-pack:center;
+                    display:-webkit-box;
+                }
+            </style>
     </head>
     <body style="text-align: center">
-        <h1>JavaScript - Redirect to another URL on Button Click.<h1>
-        <input type="button" id="button1" value="wikipedia" onClick='redirectToURL(this.id)'/>
-        <input type="button" id="button2" value="www.google.com" onClick='redirectToURL(this.id)'/>
-        <input type="button" id="button3" value="www.bing.com" onClick='redirectToURL(this.id)'/>
+        
+        <form id='form'>
+            <h1>Enter Your Information</h1>
+            <label for="fname">Name:</label><br>
+            <input type="text" id="fname" name="fname" value="John"><br>
+            <label for="lname">Number:</label><br>
+            <input type="text" id="lname" name="lname" value="Doe"><br><br>
+            <input type="button" id="button1" value="Submit" onClick='redirectToURL(this.id)'/>
+        </form> 
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </body>
 </html>
