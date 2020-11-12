@@ -4,7 +4,7 @@
 		<script type="text/javascript">
 			function redirectToURL(btnId){
 				if(btnId=="button1")
-					window.location.replace("https://en.wikipedia.org/wiki/Main_Page");
+					window.location.replace("discovermobile://?deeplink=linktoitpregistration&referral-token=abcd123");
 				else if(btnId=="button2")
 					window.location.replace("https://www.google.com");
 				else if(btnId=="button3")
@@ -14,7 +14,7 @@
 	</head>
 <body style="text-align: center">
 	<h1>JavaScript - Redirect to another URL on Button Click.<h1>
-	<input type="button" id="button1" value="discovermobile://?deeplink=linktoitpregistration&referral-token=abcd123" onClick='redirectToURL(this.id)'/>
+	<input type="button" id="button1" value="wikipedia" onClick='redirectToURL(this.id)'/>
 	<input type="button" id="button2" value="www.google.com" onClick='redirectToURL(this.id)'/>
 	<input type="button" id="button3" value="www.bing.com" onClick='redirectToURL(this.id)'/>
 </body>
