@@ -3,20 +3,15 @@
         <title>JavaScript - Redirect to another URL on Button Click.</title>
         <script type="text/javascript">
             function redirectToURL(btnId){
-                console.log('redirectToURL', btnId)
                 function pageRedirect() {
-                    console.log('pageRedirect', btnId)
                     if(btnId=="button1")
-                        window.location.replace("https://www.wikipedia.com");
+                        window.location.replace("discovermobile://?deeplink=linktoitpregistration&referral-token=abcd123");
                     else if(btnId=="button2")
                         window.location.replace("https://www.google.com");
                     else if(btnId=="button3")
                         window.location.replace("http://www.bing.com/");
                 }   
-                
-                console.log('setTimeout', btnId)
                 setTimeout(pageRedirect, 10000);
-                console.log('End', btnId)
             }
         </script>
     </head>
